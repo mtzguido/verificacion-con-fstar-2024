@@ -32,8 +32,8 @@ let par   (x:int) : bool = x % 2 = 0
 let impar (x:int) : bool = x % 2 = 1
 
 (* Dadas estas definiciones, dé un tipo a incr que diga
-que dado un número par, devuelve un número impar. *)	
-let incr'''' (x:int{par x}) : y:int{impar y} = x + 1
+que dado un número par, devuelve un número impar. *)
+// let incr'''' (x:...) : .... = x+1
 
 (* ¿Por qué falla la siguiente definición? Arreglarla. *)
 // El atributo expect_failure causa que F* chequeé que la definición
