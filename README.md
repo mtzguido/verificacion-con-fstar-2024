@@ -17,7 +17,7 @@ Clases
 | 4 | 09/04 | Más tipos indexados, pruebas extrínsecas.
 | 5 | 16/04 | SMT solvers, Codificación a SMT, verificando BSTs
 | 6 | 23/04 | Más BSTs, invariantes, refinando una ED
-| 7 | 30/04 | Lógica de Hoare para Imp
+| 7 | 30/04 | Lógica de Hoare (verificada) para Imp
 |   | 07/05 | Cancelada.
 | 8 | 14/05 | Weakest preconditions, construyendo un verificador (verificado)
 | 9 | 23/05 | Invitada: Gabriel Ebner sobre Lean y Mathlib
