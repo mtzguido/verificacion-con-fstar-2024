@@ -10,7 +10,7 @@ Clases
 
 | # |  Fecha     | Tema                        |
 |---|------------|-----------------------------|
-| 1 | 12/03 | Introducción a verificación, F*, refinamientos
+| 1 | 12/03 | Introducción a verificación, F*, tipos refinados
 | 2 | 19/03 | Tipos dependientes, lógica formal, Curry-Howard
 | 3 | 26/03 | Recursión, terminación, tipos inductivos (índices, parámetros, GADTS), positividad
 |   | 02/04 | Feriado. 
