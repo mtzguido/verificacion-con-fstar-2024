@@ -20,4 +20,4 @@ Clases
 | 7 | 30/04 | Lógica de Hoare (verificada) para Imp
 |   | 07/05 | Cancelada.
 | 8 | 14/05 | Weakest preconditions, construyendo un verificador (verificado)
-| 9 | 23/05 | Invitada: Gabriel Ebner sobre Lean y Mathlib
+| 9 | 23/05 | Invitada: Gabriel Ebner sobre Lean y Mathlib (en inglés)
