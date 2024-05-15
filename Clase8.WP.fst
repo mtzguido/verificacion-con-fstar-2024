@@ -14,6 +14,7 @@ type expr =
   | Times : expr -> expr -> expr
   | Eq    : expr -> expr -> expr
   | Lt    : expr -> expr -> expr
+  | Not   : expr -> expr
 
 noeq
 type stmt =
@@ -32,6 +33,7 @@ let rec eval_expr (s : state) (e : expr) : int =
   | Times e1 e2 -> eval_expr s e1 * eval_expr s e2
   | Eq e1 e2 -> if eval_expr s e1 = eval_expr s e2 then 0 else 1
   | Lt e1 e2 -> if eval_expr s e1 < eval_expr s e2 then 0 else 1
+  | Not e -> if eval_expr s e = 0 then 1 else 0
 
 let override (#a:eqtype) (#b:Type) (f : a -> b) (x:a) (y:b) : a -> b =
   fun z -> if z = x then y else f z
