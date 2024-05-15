@@ -197,6 +197,41 @@ let rec cwp_ok (p:stmt) (post : cond)
       pf1
     | _ -> admit()
 
+(* Agregar 1 a x. *)
+let add1 =
+  Assign "x" (Plus (Var "x") (Const 1))
+let wp_add1 : wp = cwp add1
+//let _ = assert (forall s. s "x" = 10 <==> wp_add1 (fun s -> s "x" = 11) s)
+(* DESCOMENTAR *)
+(* Arriba garantizamos que la WP para x=11 es x=10. Debería andar luego de completar
+definiciones. *)
+
+(* Agregando 2 a x, mediante y. *)
+let add2 =
+  Assign "y" (Plus (Var "x") (Const 1)) `Seq`
+  Assign "x" (Plus (Var "y") (Const 1))
+let wp_add2 : wp = cwp add2
+// let _ = assert (forall s. ?????????? <==> wp_add2 (fun s -> s "x" = 12) s)
+(* Encontrar la WP para la postcondición x=12. ¿Qué pasa con y? *)
+
+(* Intercambiando dos variables via una tercera. *)
+let swap : stmt =
+  Assign "t" (Var "x") `Seq`
+  Assign "x" (Var "y") `Seq`
+  Assign "y" (Var "t")
+let wp_swap : wp = cwp swap
+(* Demuestre que el programa intercambia x e y, demostrando un teorema sobre
+la WP *paramétrico* sobre x e y. *)
+// let _ = assert (forall s x0 y0.  ????????   ==> wp_swap (fun s -> s "x" = y0 /\ s "y" = x0) s)
+
+(* Opcional: escriba el programa siguiente
+     x = x + y;
+     y = x - y;
+     x = x - y;
+  y demuestra que también intercambia los valores de x e y. *)
+
+(* Mover x a y. *)
+
 let move_x_y : stmt =
   (* y := 0;
      while (y < x)
@@ -206,17 +241,26 @@ let move_x_y : stmt =
     (admit()) // invariante
     (Lt (Var "y") (Var "x"))
     (Assign "y" (Plus (Var "y") (Const 1)))
-
 let wp_move_x_y : wp = cwp move_x_y
+let pre_move = wp_move_x_y (fun s -> s "x" == s "y")
+(* Encuentre la WP para la postcondición x=y. *)
+// let _ = assert (forall s. ?????????? <==> pre_move s)
 
-let move_pre : cond = admit()
+// let move_x_y_ok :
+//   hoare (fun s -> s "x" >= 0) move_x_y (fun s -> s "y" = s "x")
+// = hoare_strengthen_pre  _ _ _ _ () <| cwp_ok move_x_y (fun s -> s "y" = s "x")
+(* Armando una tripleta a partir del lema anterior. Esto puede hacerse para
+cada uno de los programas anteriores. Descomentar, debería andar. *)
 
-let move_x_y_ok :
-  hoare move_pre move_x_y (fun s -> s "y" = s "x")
-= admit()
-
-(* Metateoría de WPs *)
-
+(* Cuenta regresiva. Encuentre la WP para la postcondición x=0. ¿Cuál invariante debe usar? *)
+let countdown_inv : cond = admit()
+let countdown : stmt =
+  While
+    countdown_inv
+    (Not (Eq (Var "x") (Const 0)))
+    (Assign "x" (Plus (Var "x") (Const (-1))))
+let wp_countdown : wp = cwp countdown
+let pre_countdown = wp_countdown (fun s -> s "x" == 0)
 let monotonia (p:stmt) (q1 q2 : cond)
   : Lemma (requires forall s. q1 s ==> q2 s)
           (ensures forall s. cwp p q1 s ==> cwp p q2 s)
