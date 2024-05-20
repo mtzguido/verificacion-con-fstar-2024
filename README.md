@@ -21,7 +21,7 @@ Para instrucciones sobre cómo usar la extensión, ver [aquí](https://github.co
 |  9 | 21/05 | Efectos en F\* y verificación, Mónadas de Dijkstra.
 | 10 | 28/05 |
 |    | 04/06 | Cancelada.
-| 11 | 11/06 |
+| 11 | 11/06 | Invitada: Gabriel Ebner sobre Lean4 y Mathlib
 | 12 | 18/06 | Consultas, cierre
 | -- | 25/06 | Consulta
 
