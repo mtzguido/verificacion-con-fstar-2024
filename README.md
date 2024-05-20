@@ -18,7 +18,7 @@ Para instrucciones sobre cómo usar la extensión, ver [aquí](https://github.co
 | 7 | 30/04 | Lógica de Hoare (verificada) para Imp
 |   | 07/05 | Cancelada.
 | 8 | 14/05 | Weakest preconditions, construyendo un verificador (verificado)
-| 9 | 23/05 | Invitada: Gabriel Ebner sobre Lean y Mathlib (en inglés)
+| 9 | 21/05 | Invitada: Gabriel Ebner sobre Lean y Mathlib (en inglés)
 
 ## Bibliografía
 
