@@ -16,7 +16,6 @@ RUN apt-get update \
       sudo \
       python3 \
       python-is-python3 \
-      libicu70 \
       libgmp-dev \
       opam \
     && apt-get clean -y
