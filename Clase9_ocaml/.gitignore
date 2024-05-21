@@ -1,0 +1,5 @@
+*.ml
+_build/**
+**/*.cm*
+**/*.o
+!main.ml

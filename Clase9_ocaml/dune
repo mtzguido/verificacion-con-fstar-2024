@@ -1,0 +1,7 @@
+(include_subdirs unqualified)
+
+(executable
+ (name main)
+ (libraries batteries fstar.lib)
+ (flags (:standard -warn-error -A -w -27-32-33-8-26))
+)

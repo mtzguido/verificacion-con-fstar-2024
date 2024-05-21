@@ -7,7 +7,7 @@ FLAGS += --cache_checked_modules --cache_dir $(CACHEDIR) --odir $(OUTDIR)
 #FLAGS += --already_cached Prims,FStar
 FLAGS += $(OTHERFLAGS)
 
-all: verify-all
+all: verify-all Clase9_Eff.exe
 
 # Dependencies will come from .depend.mk
 %.checked:
@@ -46,3 +46,8 @@ dep.pdf: dep.graph
 # This rule must be defined after including .depend.mk so the variable
 # is properly defined.
 verify-all: $(ALL_CHECKED_FILES)
+
+Clase9_Eff.exe: Clase9.Eff.fst
+	$(FSTAR) $< --codegen OCaml --extract_module Clase9.Eff --odir Clase9_ocaml
+	cd Clase9_ocaml && dune build
+	install Clase9_ocaml/_build/default/main.exe $@
