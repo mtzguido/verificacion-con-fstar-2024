@@ -16,6 +16,7 @@ RUN apt-get update \
       sudo \
       python3 \
       python-is-python3 \
+      python3-distutils \
       libgmp-dev \
       opam \
     && apt-get clean -y
@@ -48,18 +49,18 @@ RUN wget -nv https://github.com/Z3Prover/z3/releases/download/Z3-4.8.5/z3-4.8.5-
  && rm -r z3-4.8.5-*
 
 # Get F* master and build
-# RUN eval $(opam env) \
-#  && source $HOME/.profile \
-#  && git clone --depth=1 https://github.com/FStarLang/FStar \
-#  && cd FStar/ \
-#  && make -j$(nproc) \
-#  && ln -s $(realpath bin/fstar.exe) $HOME/bin/fstar.exe
+RUN eval $(opam env) \
+ && source $HOME/.profile \
+ && git clone https://github.com/FStarLang/FStar \
+ && cd FStar/ \
+ && git checkout v2024.01.13 \
+ && opam install .
 
 # Get F* release and extract into home
-ARG FSTAR_RELEASE_LINK=https://github.com/FStarLang/FStar/releases/download/v2024.01.13/fstar_2024.01.13_Linux_x86_64.tar.gz
-RUN wget -nv $FSTAR_RELEASE_LINK \
- && tar xzf fstar_*.tar.gz -C $HOME \
- && ln -s $(realpath fstar/bin/fstar.exe) $HOME/bin/fstar.exe
+# ARG FSTAR_RELEASE_LINK=https://github.com/FStarLang/FStar/releases/download/v2024.01.13/fstar_2024.01.13_Linux_x86_64.tar.gz
+# RUN wget -nv $FSTAR_RELEASE_LINK \
+#  && tar xzf fstar_*.tar.gz -C $HOME \
+#  && ln -s $(realpath fstar/bin/fstar.exe) $HOME/bin/fstar.exe
 
 # Instrument .bashrc to set the opam switch. Note that this
 # just appends the *call* to eval $(opam env) in these files, so we
