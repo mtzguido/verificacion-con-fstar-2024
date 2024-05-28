@@ -60,10 +60,13 @@ RUN eval $(opam env) \
 # ARG FSTAR_RELEASE_LINK=https://github.com/FStarLang/FStar/releases/download/v2024.01.13/fstar_2024.01.13_Linux_x86_64.tar.gz
 # RUN wget -nv $FSTAR_RELEASE_LINK \
 #  && tar xzf fstar_*.tar.gz -C $HOME \
-#  && ln -s $(realpath fstar/bin/fstar.exe) $HOME/bin/fstar.exe
 
-# Instrument .bashrc to set the opam switch. Note that this
+# Instrument .profile and .bashrc to set the opam switch. Note that this
 # just appends the *call* to eval $(opam env) in these files, so we
 # compute the new environments fter the fact. Calling opam env here
 # would perhaps thrash some variables set by the devcontainer infra.
+RUN echo 'eval $(opam env --set-switch)' | tee --append $HOME/.profile
 RUN echo 'eval $(opam env --set-switch)' | tee --append $HOME/.bashrc
+
+# Also just link F* into bin
+RUN eval $(opam env --set-switch) && ln -s $(which fstar.exe) $HOME/bin/fstar.exe
