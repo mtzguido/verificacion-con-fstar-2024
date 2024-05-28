@@ -19,7 +19,7 @@ Para instrucciones sobre cómo usar la extensión, ver [aquí](https://github.co
 |    | 07/05 | Cancelada.
 |  8 | 14/05 | Weakest preconditions, construyendo un verificador (verificado).
 |  9 | 21/05 | Efectos en F\* y verificación, Mónadas de Dijkstra.
-| 10 | 28/05 |
+| 10 | 28/05 | Pruebas calculacionales. Breve intro a tácticas y metaprogramación ([más material](https://fstar-lang.org/eci2019/))
 |    | 04/06 | Cancelada.
 | 11 | 11/06 | Invitada: Gabriel Ebner sobre Lean4 y Mathlib
 | 12 | 18/06 | Consultas, cierre
@@ -29,7 +29,7 @@ Para instrucciones sobre cómo usar la extensión, ver [aquí](https://github.co
 
 #### Requerida
 
-- [Proof-Oriented Programming in F\*](https://fstar-lang.org/tutorial/proof-oriented-programming-in-fstar.pdf), capítulos 1-4, 6-8 (por ahora)
+- [Proof-Oriented Programming in F\*](https://fstar-lang.org/tutorial/proof-oriented-programming-in-fstar.pdf), capítulos 1-4, 6-8, 29 (por ahora)
 - [Hoare - An axiomatic basis for computer programming (1969)](https://dl.acm.org/doi/10.1145/363235.363259)
 
 #### Complementaria
