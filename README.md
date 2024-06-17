@@ -24,7 +24,7 @@ Para instrucciones sobre cómo usar la extensión, ver [aquí](https://github.co
 | 10 | 28/05 | Pruebas calculacionales. Breve intro a tácticas y metaprogramación ([más material](https://fstar-lang.org/eci2019/))
 |    | 04/06 | Cancelada.
 | 11 | 11/06 | Invitada: Gabriel Ebner sobre Lean4 y Mathlib. [Repositorio](https://github.com/gebner/vcf24-lean)
-| 12 | 18/06 | Consultas, cierre
+| 12 | 18/06 | Invitada: Jonathan Protzenko.
 | -- | 25/06 | Consulta
 
 ## Bibliografía
