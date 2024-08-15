@@ -19,8 +19,9 @@ RUN apt-get update \
       python3-distutils \
       libgmp-dev \
       opam \
+      pkg-config \
     && apt-get clean -y
-# FIXME: libgmp-dev should be installed automatically by opam,
+# FIXME: libgmp-dev and pkg-config should be installed automatically by opam,
 # but it is not working, so just adding it above.
 
 # Create a new user and give them sudo rights
