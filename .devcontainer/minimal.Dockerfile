@@ -53,11 +53,11 @@ RUN eval $(opam env) \
  && source $HOME/.profile \
  && git clone https://github.com/FStarLang/FStar \
  && cd FStar/ \
- && git checkout v2024.01.13 \
+ && git checkout v2024.08.14 \
  && opam install .
 
 # Get F* release and extract into home
-# ARG FSTAR_RELEASE_LINK=https://github.com/FStarLang/FStar/releases/download/v2024.01.13/fstar_2024.01.13_Linux_x86_64.tar.gz
+# ARG FSTAR_RELEASE_LINK=https://github.com/FStarLang/FStar/releases/download/v2024.08.14/fstar_2024.08.14_Linux_x86_64.tar.gz
 # RUN wget -nv $FSTAR_RELEASE_LINK \
 #  && tar xzf fstar_*.tar.gz -C $HOME \
 
