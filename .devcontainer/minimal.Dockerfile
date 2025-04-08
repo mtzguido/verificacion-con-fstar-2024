@@ -1,11 +1,10 @@
-FROM ubuntu:23.10
+FROM ubuntu:24.10
 
 SHELL ["/bin/bash", "-c"]
 
 # Base dependencies: opam
 # CI dependencies: jq (to identify F* branch)
 # python3 (for interactive tests)
-# libicu (for .NET, cf. https://aka.ms/dotnet-missing-libicu )
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
       ca-certificates \
@@ -14,9 +13,6 @@ RUN apt-get update \
       git \
       gnupg \
       sudo \
-      python3 \
-      python-is-python3 \
-      python3-distutils \
       libgmp-dev \
       opam \
       pkg-config \
@@ -37,7 +33,7 @@ RUN mkdir -p $HOME/bin
 RUN echo 'export PATH=$HOME/bin:$PATH' | tee --append $HOME/.profile $HOME/.bashrc $HOME/.bash_profile
 
 # Install OCaml
-ARG OCAML_VERSION=4.14.1
+ARG OCAML_VERSION=4.14.2
 RUN opam init --compiler=$OCAML_VERSION --disable-sandboxing
 RUN opam option depext-run-installs=true
 ENV OPAMYES=1
@@ -50,12 +46,7 @@ RUN wget -nv https://github.com/Z3Prover/z3/releases/download/Z3-4.8.5/z3-4.8.5-
  && rm -r z3-4.8.5-*
 
 # Get F* master and build
-RUN eval $(opam env) \
- && source $HOME/.profile \
- && git clone https://github.com/FStarLang/FStar \
- && cd FStar/ \
- && git checkout v2024.09.05 \
- && opam install .
+RUN eval $(opam env) && opam install fstar
 
 # Get F* release and extract into home
 # ARG FSTAR_RELEASE_LINK=https://github.com/FStarLang/FStar/releases/download/v2024.09.05/fstar_2024.09.05_Linux_x86_64.tar.gz

@@ -6,7 +6,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "FStarLang.fstar-vscode-assistant"
+        "FStarLang.fstar-vscode-assistant",
+        "usernamehw.errorlens"
       ]
     }
   },
